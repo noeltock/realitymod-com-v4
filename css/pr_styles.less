@@ -1,0 +1,174 @@
+/* Mixins
+* ----------------------------------------------------------------- */
+
+@import "pr_mixins.less";
+
+/* Variables
+* ----------------------------------------------------------------- */
+
+/* colors */
+
+@pr-active: #ffe100;
+@pr-regular: #ffffff;
+@pr-body: #a6a6a6;
+@pr-digits: #4d483f;
+
+/* font stacks */
+
+@helvetica: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@gothic: 'LeagueGothic', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@orbitron: 'Orbitron', Consolas, "Lucida Console", Monaco, monospace;
+
+/* sizes */
+
+@fontsize: 14px;
+@baseline: 1.6em;
+
+/* kerning */
+
+@k-project-reality: 1px 0 0 0 0 1px 0 0 1px 0 1px 1px 2px;
+
+/* Basics
+* ----------------------------------------------------------------- */ 
+
+.right {float:right;}
+.left {float:left;}
+
+a, a:active, a:link, a:visited {
+	color:@pr-active;
+	text-decoration:none;
+}
+
+a:hover {
+	color: (@pr-active + #333);
+}
+
+/* Typography (v-rhythm still needs work)
+* ----------------------------------------------------------------- */ 
+
+body {
+	font-family:@helvetica;
+	font-size: @fontsize;
+	line-height:@baseline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:@gothic;
+	text-transform:uppercase;
+	font-weight:normal;
+	line-height:1.3em;
+	margin:( @baseline / 5 ) 0;
+}
+
+h1 {
+	color:@pr-active;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.8);
+	.mask-large;
+}
+
+h2, h3, h4, h5, h6 {
+	color:@pr-regular;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5), 0 0 7px rgba(0,0,0,0.4);
+	.mask-small;
+	}
+
+h1 {font-size:(@fontsize * 5)}
+h2 {font-size:(@fontsize * 4)}
+h3 {font-size:(@fontsize * 2.5)}
+
+p, ul, ol, li, blockquote {
+	margin:( @baseline / 3 ) 0;
+}
+
+/* Custom Typography
+* ----------------------------------------------------------------- */ 
+
+h1#main-title {
+	-letter-kern: @k-project-reality;
+	position:absolute;
+	top:190px;
+	font-size:80px;
+	line-height:normal;
+	z-index:100;
+	margin:0;
+}
+
+h3#tagline {
+	position:absolute;
+	top:277px;
+	font-size:40px;
+	line-height:normal;
+	z-index:100;
+	margin:0;
+}
+
+.header-digits {
+	text-transform:uppercase;
+	position:absolute;
+	font-family:@orbitron;
+	color:@pr-regular;
+	font-size:16px;
+}
+
+/* General
+* ----------------------------------------------------------------- */
+
+body {
+	color:@pr-body;
+	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+	-webkit-text-size-adjust: 100%;
+	background: #000 url('../images/body_bg.jpg') no-repeat center top;
+}
+
+#main {padding-top:0px;}
+
+/* Main & Logo
+* ----------------------------------------------------------------- */
+
+#header-main {
+	position:relative;
+	height:337px;
+	overflow:visible;
+}
+
+#header-logo {
+	position: absolute;
+	left:-5px;
+	top:-2px;
+	background: url('../images/logo.png') no-repeat top left;
+	width:169px;
+	height:133px;
+}
+
+/* Navigation
+* ----------------------------------------------------------------- */
+
+#header-nav {
+	margin:0;
+	padding:0;
+}
+
+ul#primary-navigation {
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+	overflow:auto;
+}
+
+ul#primary-navigation li {
+	margin:0;
+}
+
+ul#primary-navigation li a {
+	list-style-type:none;
+	float:right;
+	margin:0;
+	padding:0 20px;
+	line-height:57px;
+	height:57px;
+}
+
+ul#primary-navigation li.active a,
+ul#primary-navigation li a:hover {
+	background: url('../images/black30.png');
+}
